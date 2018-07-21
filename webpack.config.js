@@ -1,3 +1,7 @@
+//ref used: https://www.youtube.com/watch?v=uextYhQGP6k
+//ref used: https://www.youtube.com/watch?v=deyxI-6C2u4
+//ref used: https://www.youtube.com/watch?v=IR6smI_YJDE
+
 const webpack = require('webpack');
 const HtmlWebpackPlugin = reuire('html-webpack-plugin')
 const path = require('path');
@@ -22,5 +26,11 @@ module.exports = {
             loader: 'babel-loader',
         }
       }],
-    }
+    }, 
+
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: '.server/public/index.html'
+      })
+    ]
   };
