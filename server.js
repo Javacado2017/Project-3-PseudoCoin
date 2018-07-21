@@ -13,8 +13,8 @@ const config = require('./config');
 const app = express();
 
 // Connect to public and dist directories
-app.use(express.static('./server/static/'));
-app.use(express.static('./client/dist/'));
+app.use(express.static('./server/public/'));
+app.use(express.static('./client/dist/js'));
 
 // Connect to the database and load models
 var User = require('./server/models/user');
@@ -35,11 +35,11 @@ app.use(passport.session());
 
 // Serialize/DeserializeUser per passport documentation
 passport.serializeUser((user, done) => {
-    done(null, user.id);
-});
-
-passport.deserializeUser((id, done) => {
-    User.findById(id).then((user) => {
+    done(null, user._id);
+  });
+  
+passport.deserializeUser((_id, done) => {
+    User.findById(_id).then((user) => {
         done(null, user);
     });
 });

@@ -3,7 +3,7 @@
 //ref used: https://www.youtube.com/watch?v=IR6smI_YJDE
 
 const webpack = require('webpack');
-const HtmlWebpackPlugin = reuire('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path');
 
 module.exports = {
@@ -27,7 +27,8 @@ module.exports = {
         }
       }],
     }, 
-
+    
+    // html-webpack-plugin
     plugins: [
       new HtmlWebpackPlugin({
         template: '.server/public/index.html'
