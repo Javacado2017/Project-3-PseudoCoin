@@ -1,5 +1,8 @@
 # Project-3-PseudoCoin 
 
+# SWIM LANE TO EXPLAIN CODE: 
+- create a swimlane diagram to explain architecture
+
 # WEBPACK NOTES: 
 - check about the HtmlWebpackPlugin 
 - CSS/SASS loaders? 
@@ -8,5 +11,8 @@
 - https://ramanasha.blogspot.com/
 
 # DEPENDENCIES: 
-- npm install --save insert-package-name-here for local dependencies
---npm install --save-dev insert-package-name-here for dev dependencies
+- Use npm install --save insert-package-name-here for local dependencies
+- Use npm install --save-dev insert-package-name-here for dev dependencies
+
+# ADD FUNCTIONALITY
+- "we're updated out privacy policy" funny alert upon rendering
