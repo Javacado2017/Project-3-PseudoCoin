@@ -1,27 +1,27 @@
-//Webpack is used to reduce the number of requests on the client side so the page 
-  //can load faster and won't take up that as many resources. It packages all of the assets, creates 
-  //a single bundle that is output on the page. It also converts code into the correct browser formats needed. 
-  //ref used: https://webpack.js.org, 
+// CREATE WEBPACK SETUP 
+  // Used to reduce the number of requests on the client side. Helps to reduce resources used, but 
+  // packaging all of the assets, creating a single bundle that is output on the page in the right 
+  // updating individual any local changes done on the client side.
+// REFERENCES: https://webpack.js.org
     //https://www.youtube.com/watch?v=ytRnPV0kRN0&list=PL4cUxeGkcC9iTQ3J5oa6orDIMQKKxl8dC
-    //https://www.youtube.com/watch?v=uextYhQGP6k //https://www.youtube.com/watch?v=deyxI-6C2u4
-    //https://www.youtube.com/watch?v=IR6smI_YJDE
 
-//Dependencies
+// DEPENDENCY FUNCTIONS: 
 const path = require('path');
 const webpack = require('webpack');
 //const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+// ENTRY AND OUPUT FUNCTIONS: 
 module.exports = {
-  //Defines the entry point where the initial file is
+  // Defines the entry point
   entry: path.join(__dirname, '/client/src/app.js'),
 
-  //Defines the output point, which is created automatically if not already there
+  // Defines the output point
   output: {
     path: path.join(__dirname, '/client/dist/js'),
     filename: 'app.js',
   },
 
-  //Defines the rules of how the file is bundled and dumped into the output point, see docs for webpack
+  // Defines the rules of how the client side files are bundled and dumped into the output point
   module: {
     loaders: [{
       test: /\.js$/,
@@ -43,6 +43,6 @@ module.exports = {
   //   })
   // ],
   
-  //Set to true so that webpack can watch for changes in any of the cilent side files so it rebundles
+  // Trigers to re-bundle if there are changes on the client side
   watch: true
 };

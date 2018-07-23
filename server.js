@@ -1,11 +1,9 @@
-// Code to create web server, passport strategies, 
+// CREATING SERVER CONNECTION FRAMEWORK
 
-//ref used: https://www.youtube.com/watch?v=w-7RQ46RgxU&list=PL4cUxeGkcC9gcy9lrvMJ75z9maRw4byYp, 
-//ref used: http://www.passportjs.org/docs/, 
-    //https://www.youtube.com/watch?v=sakQbeRjgwg&list=PL4cUxeGkcC9jdm7QX143aMLAqyM-jTZ2x,
-    //https://www.sitepoint.com/local-authentication-using-passport-node-js/
+// REFFERENCES: http://www.passportjs.org/docs/, 
+    //https://www.youtube.com/watch?v=w-7RQ46RgxU&list=PL4cUxeGkcC9gcy9lrvMJ75z9maRw4byYp
 
-
+// DEPENDENCY FUNCTIONS: 
 // General dependencies
 const express = require('express');
 const session = require('express-session');
@@ -17,9 +15,11 @@ const cookieParser = require('cookie-parser');
 const passport = require('passport');
 const config = require('./config');
 
+// EXPRESS FUNCTIONS:
 // Setup express app
 const app = express();
 
+// WEBPACK FUNCTIONS:
 // Tells app to use static files to render to browser 
 app.use(express.static('./server/static/'));
 app.use(express.static('./client/dist/'));
@@ -29,12 +29,12 @@ app.use(express.static('./client/dist/'));
 var User = require('./server/models/user');
 require('./server/models').connect(config.dbUri);
 
-// MIDDLEWARE FUNCTIONS:  
-// Tells app to parse cookie headers sent between cilent and server
+// Middleware functions to: 
+// Tell app to parse cookie headers sent between cilent and server
 app.use(cookieParser());
-// Tells app to parse HTTP body messages
+// Tell app to parse HTTP body messages
 app.use(bodyParser.urlencoded({ extended: false }));
-// Tells app to authenticate sessions between the cient and the server
+// Tell app to authenticate sessions between cient and server
 app.use(session({
     secret: 'some secret password',
     resave: true,
@@ -72,8 +72,8 @@ app.use('/api', authCheckMiddleware);
 // ROUTE FUNCTIONS:
 // Tells app to use these routes
 const authRoutes = require('./server/routes/auth');
-const apiRoutes = require('./server/routes/api');
 app.use('/auth', authRoutes);
+const apiRoutes = require('./server/routes/api');
 app.use('/api', apiRoutes);
 
 // SERVER FUNCTIONS: 
