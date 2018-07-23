@@ -1,14 +1,16 @@
 # Project-3-PseudoCoin 
 
+THIS IS FOR MY NOTES ONLY (CAN IGNORE)
+
+# MVC ARCHITECTURE
+- This follows the MVC architecture
+
 # SWIM LANE TO EXPLAIN CODE: 
 - create a swimlane diagram to explain architecture
 
 # WEBPACK NOTES: 
 - check about the HtmlWebpackPlugin 
 - CSS/SASS loaders? 
-
-# PASSPORT NOTES: 
-- https://ramanasha.blogspot.com/
 
 # DEPENDENCIES: 
 - Use npm install --save insert-package-name-here for local dependencies

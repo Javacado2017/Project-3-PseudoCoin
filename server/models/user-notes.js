@@ -1,0 +1,1 @@
+//will store user notes or maybe saved newsfeed if we use another API
