@@ -1,0 +1,2 @@
+//If someone wants to get in on an API for some back/front end development we can use last react homework to do this. 
+// We can do an API call and save articles from the class NYTimes API and add notes to the articles.

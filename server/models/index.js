@@ -1,10 +1,7 @@
+// Dependencies
 const mongoose = require('mongoose');
 
-module.exports.connect = (uri) => {
-    require('./user');
-}
-
-const mongoose = require('mongoose');
+//Module that creates the database connection
 module.exports.connect = (uri) => {
   mongoose.connect(uri);
   // plug in the promise library:
