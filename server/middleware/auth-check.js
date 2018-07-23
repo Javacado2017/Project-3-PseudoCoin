@@ -9,8 +9,8 @@ module.exports = (req, res, next) => {
   if (!req.headers.authorization) {
     return res.status(401).end();
   }
-  // This gets the authorization header string, then decodes the token using a secret phase
-  // from teh config filel The 401 code is when there's an unauthorized status
+  // This gets the authorization header string, then decodes the token using a secret phrase 
+  // from the config file. The 401 code is when there's an unauthorized status
   const token = req.headers.authorization.split(' ')[1];
   
   return jwt.verify(token, config.jwtSecret, (err, decoded) => {

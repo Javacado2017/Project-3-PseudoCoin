@@ -1,4 +1,4 @@
-// Here is where the app looks to validate and sanitize information and add calls to the passport strategy functions and 
+// Here is where the app looks to validate/sanitize information and add calls to the passport strategy functions and 
 // This one in particular is for the authention checks and some validation when the user logs in and signs up. 
 // Note that it's requiring the validator package for validation and sanitization. 
 // Validattion looks to make certain that the app has the right content or type (i.e. making sure that an email is an email)
