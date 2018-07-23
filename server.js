@@ -1,11 +1,8 @@
 //This is where the web server is created and we establish passport local strategy for user login
 //ref used: https://www.youtube.com/watch?v=w-7RQ46RgxU&list=PL4cUxeGkcC9gcy9lrvMJ75z9maRw4byYp, 
-    
 //ref used: http://www.passportjs.org/docs/, 
     //https://www.youtube.com/watch?v=sakQbeRjgwg&list=PL4cUxeGkcC9jdm7QX143aMLAqyM-jTZ2x,
     //https://www.sitepoint.com/local-authentication-using-passport-node-js/
-
-
 
 // Generaldependencies
 const express = require('express');
