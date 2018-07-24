@@ -1,18 +1,18 @@
-// ref used: http://devsmash.com/blog/password-authentication-with-mongoose-and-bcrypt, 
-    //https://ramanasha.blogspot.com/
-  
-//Dependencies
+// CREATE USER SCHEMA
+
+// DEPENDENCY FUNCTIONS: 
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
-// This define the user schema
+// DEFINE SCHEMA
 const UserSchema = new mongoose.Schema({
   email: {
-    type: String,
-    index: { unique: true }
+      type: String,
+      index: { unique: true }
   },
   password: String,
-  name: String
+  name: String,
+  jwtToken: String
 });
 
 // This compares the passed password with the value in the database. 
@@ -20,7 +20,6 @@ const UserSchema = new mongoose.Schema({
 UserSchema.methods.comparePassword = function comparePassword(password, callback) {
   bcrypt.compare(password, this.password, callback);
 };
-
 // This is a pre-save hook method to save the user if they're already logged in. 
 UserSchema.pre('save', function saveHook(next) {
   const user = this;
@@ -37,5 +36,5 @@ UserSchema.pre('save', function saveHook(next) {
   });
 });
 
-//Exports the module
+// Export the module
 module.exports = mongoose.model('User', UserSchema);

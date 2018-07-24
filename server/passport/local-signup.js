@@ -1,9 +1,13 @@
-//Dependencies
+// CREATING PASSPORT SIGNUP STRATEGY
+// REFERENCES: http://www.passportjs.org/docs/
+
+// DEPENDENCY FUNCTIONS:
 const User = require('mongoose').model('User');
 const PassportLocalStrategy = require('passport-local').Strategy;
 
-//Per passport documenation, using local strategy for the app
+// SIGNUP PASSPORT CONFIGURATION FUNCTIONS:
 module.exports = new PassportLocalStrategy({
+  // Defines properties in the POST body sent to server, disables session support
   usernameField: 'email',
   passwordField: 'password',
   session: false,

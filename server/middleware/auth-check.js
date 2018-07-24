@@ -1,10 +1,13 @@
-//Dependencies
+// CREATE MIDDLEWARE FUNCTIONS FOR AUTHENICATION CHECKS
+// REFERENCES: https://cdn-images-1.medium.com/max/800/1*SSXUQJ1dWjiUrDoKaaiGLA.png
+
+// DEPENDENCY FUNCTIONS: 
 const jwt = require('jsonwebtoken');
 const User = require('mongoose').model('User');
 const config = require('../../config');
 
 // Authentication check, decodes what was encrypted
-// This uses JSON web tokens (aka. JWT) which allows you to send informatin securely. 
+// This uses JSON web tokens which allows you to send informatin securely. 
 module.exports = (req, res, next) => {
   if (!req.headers.authorization) {
     return res.status(401).end();
