@@ -30,6 +30,7 @@
 - Mongo models for the dashboard capability
 - Set the cards to be rendered on the page
 - Pages folder and then individual component folders 
+- look into .ejs files for embeded javascript 
 
 # ENVIRONMENTAL FILE
 - Note that enviornmental vaiable will not work on client side, code architecture need to work around this if API keys are used

@@ -1,7 +1,7 @@
 // CREATE WEBPACK SETUP 
-  // Used to reduce the number of requests on the client side. Helps to reduce resources used, but 
-  // packaging all of the assets, creating a single bundle that is output on the page in the right 
-  // updating individual any local changes done on the client side.
+  // Used to reduce the number of requests on the client side to reduce resources spend by 
+  // packaging assets and creating a single bundle that is output on the page. Also,   
+  // recognizes when to re-bundle when changes are made to local areas of the code. 
 // REFERENCES: https://webpack.js.org
     //https://www.youtube.com/watch?v=ytRnPV0kRN0&list=PL4cUxeGkcC9iTQ3J5oa6orDIMQKKxl8dC
 
@@ -43,6 +43,6 @@ module.exports = {
   //   })
   // ],
   
-  // Trigers to re-bundle if there are changes on the client side
+  // Trigers to re-bundle when changes are made on the client side
   watch: true
 };

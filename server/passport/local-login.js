@@ -1,34 +1,38 @@
-//Dependencies
+// CREATING PASSPORT LOCAL STRATEGY
+// REFERENCES: http://www.passportjs.org/docs/
+  // https://github.com/jaredhanson/passport-local
+  // https://cdn-images-1.medium.com/max/800/1*SSXUQJ1dWjiUrDoKaaiGLA.png
+
+// DEPENDENCY FUNCTIONS: 
 const jwt = require('jsonwebtoken');
 const User = require('mongoose').model('User');
 const PassportLocalStrategy = require('passport-local').Strategy;
 const config = require('../../config');
 
-// Module that returns the passport local strategy object
-// A lot of this is per passort documentation at http://www.passportjs.org/docs/
+// LOCAL PASSPORT STRATEGY FUNCTIONS:
 module.exports = new PassportLocalStrategy({
-  //Passport has it's own input defaults, this is if you want to customize it
+  // Defines properties in the POST body sent to server
+  // Disables session support
   usernameField: 'email',
   passwordField: 'password',
   session: false,
   passReqToCallback: true
 }, (req, email, password, done) => {
-  const userData = {
-    email: email.trim(),
-    password: password.trim()
-  };
+    const userData = {
+      email: email.trim(),
+      password: password.trim()
+    };
 
-  // This finds a user by email address, note in the models that the schema 
-  // set the emails to be unique so a user isn't saved with the same email 
+  // Passport congifuration and errors 
   return User.findOne({ email: userData.email }, (err, user) => {
+    // Compares input to emails in database
     if (err) { return done(err); }
     if (!user) {
       const error = new Error('Incorrect email or password');
       error.name = 'IncorrectCredentialsError';
       return done(error);
     }
-    // If a hashed user's password from signup is equal to a value saved in the database
-    // the app will compate the passwords
+    // Compares hashed user passwords
     return user.comparePassword(userData.password, (passwordErr, isMatch) => {
       if (err) { return done(err); }
       if (!isMatch) {
@@ -36,15 +40,17 @@ module.exports = new PassportLocalStrategy({
         error.name = 'IncorrectCredentialsError';
         return done(error);
       }
+      // If authenticated, defines the payload which contains the claim information
       const payload = {
         sub: user._id
       };
-      // This uses jsonwebtoken to create a token, note that when a new user is 
-      // entered into the database their actual password isn't visible
+      // Generates JWT to return to user which is used to make API calls
       const token = jwt.sign(payload, config.jwtSecret);
+
       const data = {
         name: user.name
       };
+
       return done(null, token, data);
     });
   });
