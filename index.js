@@ -54,13 +54,11 @@ passport.deserializeUser((_id, done) => {
     });
 });
 
-// Passport local strategy
+// Passport local & local-signup strategy
 const localSignupStrategy = require('./server/passport/local-signup');
-passport.use('local-login', localLoginStrategy);
-
-// Passport local-signup strategy
 const localLoginStrategy = require('./server/passport/local-login');
 passport.use('local-signup', localSignupStrategy);
+passport.use('local-login', localLoginStrategy);
 
 // Middleware authentication check
 const authCheckMiddleware = require('./server/middleware/auth-check');

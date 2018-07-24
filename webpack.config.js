@@ -23,7 +23,7 @@ module.exports = {
 
   // Defines the rules of how the client side files are bundled and dumped into the output point
   module: {
-    loaders: [{
+    rules: [{
       test: /\.js$/,
       exclude: /(node_module)/,
       include: path.join(__dirname, '/client/src'),
