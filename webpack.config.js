@@ -44,5 +44,5 @@ module.exports = {
   // ],
   
   // Trigers to re-bundle when changes are made on the client side
-  watch: true
+  watch: false
 };
