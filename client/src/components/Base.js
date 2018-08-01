@@ -23,7 +23,6 @@ const styles = {
 };
 
 function handleTouchTap() {
-
 }
 
 export default class Base extends Component {
@@ -93,20 +92,7 @@ export default class Base extends Component {
           )
           }
         />
-        <Drawer
-          docked={false}
-          width={200}
-          open={this.state.settingsOpen}
-          onRequestChange={this.handleToggle}
-        >
-          <MenuItem onTouchTap={this.handleClose}>BTC</MenuItem>
-          <MenuItem onTouchTap={this.handleClose}>BTG</MenuItem>
-          <MenuItem onTouchTap={this.handleClose}>ETH</MenuItem>
-          <MenuItem onTouchTap={this.handleClose}>LTC</MenuItem>
-        </Drawer>
-      { /* child components*/ }
-      {this.props.children}
-
+        
     </div>
     );
   }
